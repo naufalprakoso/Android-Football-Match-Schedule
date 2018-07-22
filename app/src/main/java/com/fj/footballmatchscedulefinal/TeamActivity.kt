@@ -18,7 +18,24 @@ import kotlinx.android.synthetic.main.activity_team.*
 import org.jetbrains.anko.support.v4.onRefresh
 import org.jetbrains.anko.startActivity
 
-class TeamActivity : AppCompatActivity(), TeamView {
+class TeamActivity : AppCompatActivity(), TeamView, View.OnClickListener {
+
+    override fun onClick(p0: View?) {
+        when(p0){
+            btn_search -> {
+                val strSearch = edt_search.text.toString()
+
+                when{
+                    strSearch.isEmpty() -> edt_search.error = "Must be filled"
+                    else -> {
+                        startActivity<TeamSearchActivity>(
+                                KEY.TEAM_NAME_KEY to strSearch
+                        )
+                    }
+                }
+            }
+        }
+    }
 
     private var teams: MutableList<Team> = mutableListOf()
     private lateinit var presenter: TeamPresenter
@@ -43,6 +60,8 @@ class TeamActivity : AppCompatActivity(), TeamView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_team)
+
+        btn_search.setOnClickListener(this)
 
         val spinnerItems = resources.getStringArray(league)
         val spinnerAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, spinnerItems)

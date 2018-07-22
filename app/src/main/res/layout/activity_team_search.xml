@@ -5,44 +5,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TeamActivity">
+    tools:context=".TeamSearchActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="@dimen/dimen_16dp"
-        android:layout_marginLeft="@dimen/dimen_8dp"
-        android:layout_marginRight="@dimen/dimen_8dp">
-
-        <EditText
-            android:layout_weight="2"
-            android:hint="Search..."
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/dimen_16dp"
-            android:id="@+id/edt_search"/>
-
-        <Button
-            android:layout_weight="8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Search"
-            android:id="@+id/btn_search"
-            android:background="@color/colorAccent"
-            android:textColor="@android:color/white"/>
-
-    </LinearLayout>
-
-    <Spinner
+        android:layout_gravity="center"
+        android:textColor="@android:color/black"
+        android:textSize="22sp"
+        android:id="@+id/txt_search"
         android:layout_marginTop="@dimen/dimen_16dp"
         android:layout_marginLeft="@dimen/dimen_8dp"
         android:layout_marginRight="@dimen/dimen_8dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinner_team"/>
+        android:gravity="center"/>
 
     <android.support.v4.widget.SwipeRefreshLayout
+        android:layout_marginTop="@dimen/dimen_16dp"
         android:id="@+id/swipe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">

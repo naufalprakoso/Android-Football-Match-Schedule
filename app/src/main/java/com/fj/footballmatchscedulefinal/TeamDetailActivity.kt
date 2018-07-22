@@ -22,7 +22,6 @@ import org.jetbrains.anko.db.delete
 import org.jetbrains.anko.db.insert
 import org.jetbrains.anko.db.select
 import org.jetbrains.anko.design.snackbar
-import org.jetbrains.anko.imageResource
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.support.v4.onRefresh
 
@@ -78,6 +77,8 @@ class TeamDetailActivity : AppCompatActivity(), TeamView, View.OnClickListener {
         supportActionBar?.title = "Team Detail"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        favoriteState()
+
         fab.setOnClickListener { view ->
             if (isFavorite) removeFromFavorite() else addToFavorite()
 
@@ -85,7 +86,6 @@ class TeamDetailActivity : AppCompatActivity(), TeamView, View.OnClickListener {
             setFavorite()
         }
 
-        favoriteState()
         val request = APIRepository()
         val gson = Gson()
         presenter = TeamDetailPresenter(this, request, gson)
@@ -107,7 +107,7 @@ class TeamDetailActivity : AppCompatActivity(), TeamView, View.OnClickListener {
     private fun favoriteState(){
         database.use {
             val result = select(Favorite.TABLE_FAVORITE)
-                    .whereArgs("(TEAM_ID = {id})",
+                    .whereArgs("TEAM_ID = {id}",
                             "id" to id)
             val favorite = result.parseList(classParser<Favorite>())
             if (!favorite.isEmpty()) isFavorite = true
@@ -142,9 +142,10 @@ class TeamDetailActivity : AppCompatActivity(), TeamView, View.OnClickListener {
 
     private fun setFavorite() {
         if (isFavorite)
-            fab.imageResource = R.drawable.ic_added_to_favorites
+            fab.setImageResource(R.drawable.ic_added_to_favorites)
         else
-            fab.imageResource = R.drawable.ic_add_to_favorites
+            fab.setImageResource(R.drawable.ic_add_to_favorites)
+
     }
 
     override fun onSupportNavigateUp(): Boolean {

@@ -34,7 +34,6 @@ class PlayerActivity : AppCompatActivity(), PlayerView {
         swipe.isRefreshing = false
         player.clear()
         player.addAll(data)
-        println("Info : ${player.size}")
         adapter.notifyDataSetChanged()
     }
 
