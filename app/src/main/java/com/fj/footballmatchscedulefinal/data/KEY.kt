@@ -1,5 +1,10 @@
 package com.fj.footballmatchscedulefinal.data
 
-class Key{
-    val TEAM_ID_KEY = "TeamIdKey"
+class KEY{
+    companion object {
+        const val APP_KEY = "FJKey"
+
+        const val TEAM_ID_KEY = "TeamIdKey"
+        const val PLAYER_ID_KEY = "PlayerIdKey"
+    }
 }

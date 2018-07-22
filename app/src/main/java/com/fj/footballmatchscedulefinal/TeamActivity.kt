@@ -12,6 +12,7 @@ import com.fj.footballmatchscedulefinal.api.APIRepository
 import com.fj.footballmatchscedulefinal.model.Team
 import com.fj.footballmatchscedulefinal.presenter.TeamPresenter
 import com.fj.footballmatchscedulefinal.view.TeamView
+import com.fj.footballmatchscedulefinal.data.KEY
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_team.*
 import org.jetbrains.anko.support.v4.onRefresh
@@ -48,9 +49,9 @@ class TeamActivity : AppCompatActivity(), TeamView {
         spinner_team.adapter = spinnerAdapter
 
         adapter = TeamAdapter(this, teams) {
-//            startActivity<TeamDetailActivity>("id" to "${it.teamId}")
+            startActivity<TeamDetailActivity>(KEY.TEAM_ID_KEY to "${it.teamId}")
         }
-        rv_team.layoutManager = GridLayoutManager(this, 2);
+        rv_team.layoutManager = GridLayoutManager(this, 2)
         rv_team.adapter = adapter
 
         val request = APIRepository()

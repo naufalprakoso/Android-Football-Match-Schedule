@@ -12,4 +12,5 @@
         <item>French Ligue 1</item>
         <item>Spanish La Liga</item>
     </array>
+    <string name="title_activity_team_detail">TeamDetailActivity</string>
 </resources>
