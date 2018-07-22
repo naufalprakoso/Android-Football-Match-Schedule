@@ -24,7 +24,9 @@
             android:label="@string/title_activity_team_detail"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".PlayerActivity" />
-        <activity android:name=".PlayerDetailActivity"></activity>
+        <activity android:name=".PlayerDetailActivity" />
+        <activity android:name=".FavoriteInitialActivity" />
+        <activity android:name=".FavoriteTeamActivity"></activity>
     </application>
 
 </manifest>
