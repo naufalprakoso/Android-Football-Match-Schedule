@@ -42,11 +42,14 @@ class PlayerActivity : AppCompatActivity(), PlayerView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_player)
 
+        supportActionBar?.title = "Player"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         val i = intent
         id = i.getStringExtra(KEY.TEAM_ID_KEY)
 
         adapter = PlayerAdapter(this, player) {
-            startActivity<TeamDetailActivity>(KEY.PLAYER_ID_KEY to "${it.idPlayer}")
+            startActivity<PlayerDetailActivity>(KEY.PLAYER_ID_KEY to "${it.idPlayer}")
         }
         rv_player.layoutManager = GridLayoutManager(this, 2)
         rv_player.adapter = adapter
@@ -67,5 +70,10 @@ class PlayerActivity : AppCompatActivity(), PlayerView {
 
     private fun View.invisible(){
         visibility = View.INVISIBLE
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

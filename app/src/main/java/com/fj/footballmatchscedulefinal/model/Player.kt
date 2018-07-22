@@ -28,8 +28,5 @@ data class Player(
         var strWeight: String? = null,
 
         @SerializedName("strCutout")
-        var strCutout: String? = null,
-
-        @SerializedName("strFanart3")
-        var strFanart3: String? = null
+        var strCutout: String? = null
 )

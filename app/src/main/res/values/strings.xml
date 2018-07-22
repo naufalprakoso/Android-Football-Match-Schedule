@@ -13,4 +13,6 @@
         <item>Spanish La Liga</item>
     </array>
     <string name="title_activity_team_detail">TeamDetailActivity</string>
+    <string name="weight">Weight</string>
+    <string name="height">Height</string>
 </resources>
