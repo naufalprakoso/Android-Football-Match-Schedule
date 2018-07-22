@@ -17,7 +17,7 @@ import org.jetbrains.anko.support.v4.onRefresh
 
 class PlayerActivity : AppCompatActivity(), PlayerView {
 
-    private var players: MutableList<Player> = mutableListOf()
+    private var player: MutableList<Player> = mutableListOf()
     private lateinit var presenter: PlayerPresenter
     private lateinit var adapter: PlayerAdapter
     private lateinit var id: String
@@ -32,9 +32,9 @@ class PlayerActivity : AppCompatActivity(), PlayerView {
 
     override fun showPlayerList(data: List<Player>) {
         swipe.isRefreshing = false
-        players.clear()
-        players.addAll(data)
-        println("Info : ${players.size}")
+        player.clear()
+        player.addAll(data)
+        println("Info : ${player.size}")
         adapter.notifyDataSetChanged()
     }
 
@@ -45,7 +45,7 @@ class PlayerActivity : AppCompatActivity(), PlayerView {
         val i = intent
         id = i.getStringExtra(KEY.TEAM_ID_KEY)
 
-        adapter = PlayerAdapter(this, players) {
+        adapter = PlayerAdapter(this, player) {
             startActivity<TeamDetailActivity>(KEY.PLAYER_ID_KEY to "${it.idPlayer}")
         }
         rv_player.layoutManager = GridLayoutManager(this, 2)

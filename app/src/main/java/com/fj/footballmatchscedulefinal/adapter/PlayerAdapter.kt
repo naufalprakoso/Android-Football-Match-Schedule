@@ -11,21 +11,29 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_player.view.*
 import org.jetbrains.anko.sdk25.listeners.onClick
 
-class PlayerAdapter(private val context: Context, private val players: List<Player>, private val listener: (Player) -> Unit)
+class PlayerAdapter(private val context: Context, private val player: List<Player>, private val listener: (Player) -> Unit)
     : RecyclerView.Adapter<PlayerAdapter.TeamViewHolder>(){
 
     override fun onBindViewHolder(holder: TeamViewHolder, position: Int) {
-        holder.bindItem(players[position], listener)
+        holder.bindItem(player[position], listener)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TeamViewHolder =
             TeamViewHolder(LayoutInflater.from(context).inflate(R.layout.item_player, parent, false))
 
-    override fun getItemCount(): Int = players.size
+    override fun getItemCount(): Int = player.size
 
     class TeamViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bindItem(player: Player, listener: (Player) -> Unit){
-            Picasso.with(itemView.context).load(player.strFanart3).into(itemView.img_player)
+            if (player.strCutout == null){
+                Picasso.with(itemView.context).load(
+                        "https://payload177.cargocollective.com/1/8/277497/5848345/Screen-Shot-2014-07-15-at-12.56.03-PM.png"
+                ).into(itemView.img_player)
+            }else{
+                Picasso.with(itemView.context).load(player.strCutout).into(itemView.img_player)
+            }
+
+            itemView.txt_name.text = player.strPlayer
             itemView.txt_position.text = player.strPosition
 
             itemView.cv_item.onClick{

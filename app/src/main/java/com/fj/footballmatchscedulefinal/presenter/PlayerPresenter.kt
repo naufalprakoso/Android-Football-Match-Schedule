@@ -23,7 +23,7 @@ class PlayerPresenter(private val view: PlayerView,
                         PlayerResponse::class.java
                 )
             }
-            view.showPlayerList(data.await().players)
+            view.showPlayerList(data.await().player)
             view.hideLoading()
         }
     }
