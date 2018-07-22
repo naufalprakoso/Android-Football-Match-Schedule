@@ -1,3 +1,15 @@
 <resources>
-    <string name="app_name">FootballMatchSceduleFinal</string>
+    <string name="app_name">Football Match Schedule</string>
+    <string name="match">Match</string>
+    <string name="favorite">Favorite</string>
+    <string name="team">Team</string>
+
+    <array name="league">
+        <item>English Premier League</item>
+        <item>English League Championship</item>
+        <item>German Bundesliga</item>
+        <item>Italian Serie A</item>
+        <item>French Ligue 1</item>
+        <item>Spanish La Liga</item>
+    </array>
 </resources>
