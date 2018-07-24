@@ -132,13 +132,6 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailView, MatchView {
         supportActionBar?.title = getString(match_detail)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        fab.setOnClickListener {
-            if (isFavorite) removeFromFavorite() else addToFavorite()
-
-            isFavorite = !isFavorite
-            setFavorite()
-        }
-
         val i = intent
 
         homeId = i.getStringExtra(KEY.HOME_ID_KEY)
@@ -146,6 +139,15 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailView, MatchView {
         eventId = i.getStringExtra(KEY.EVENT_ID_KEY)
 
         favoriteState()
+        setFavorite()
+
+        fab.setOnClickListener {
+            if (isFavorite) removeFromFavorite() else addToFavorite()
+
+            isFavorite = !isFavorite
+            setFavorite()
+        }
+
         val request = APIRepository()
         val gson = Gson()
 
@@ -164,10 +166,9 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailView, MatchView {
     private fun favoriteState(){
         database.use {
             val result = select(FavoriteMatch.TABLE_FAVORITE)
-                    .whereArgs("(TEAM_HOME_ID = {id}) and (TEAM_AWAY_ID = {id2}) and (EVENT_DATE = {id3})",
-                            "id" to homeId,
-                            "id2" to awayId,
-                            "id3" to eventId)
+                    .whereArgs("EVENT_ID = {id}",
+                            "id" to eventId)
+
             val favorite = result.parseList(classParser<FavoriteMatch>())
             if (!favorite.isEmpty()) isFavorite = true
         }
@@ -177,6 +178,7 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailView, MatchView {
         try {
             database.use {
                 insert(FavoriteMatch.TABLE_FAVORITE,
+                        FavoriteMatch.EVENT_ID to eventId,
                         FavoriteMatch.TEAM_HOME_ID to homeId,
                         FavoriteMatch.TEAM_AWAY_ID to awayId,
                         FavoriteMatch.EVENT_DATE to eventDate,
@@ -196,10 +198,8 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailView, MatchView {
         try {
             database.use {
                 delete(FavoriteMatch.TABLE_FAVORITE,
-                        "(TEAM_HOME_ID = {id}) and (TEAM_AWAY_ID = {id2}) and (EVENT_DATE = {id3})",
-                        "id" to homeId,
-                        "id2" to awayId,
-                        "id3" to eventId)
+                        "EVENT_ID = {id}",
+                        "id" to eventId)
             }
             toast(getString(remove_fav))
         } catch (e: SQLiteConstraintException){
@@ -226,5 +226,4 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailView, MatchView {
         onBackPressed()
         return true
     }
-
 }

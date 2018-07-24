@@ -30,7 +30,7 @@ class FavoriteMatchActivity : AppCompatActivity() {
             startActivity<MatchDetailActivity>(
                     KEY.HOME_ID_KEY to it.teamHomeId,
                     KEY.AWAY_ID_KEY to it.teamAwayId,
-                    KEY.EVENT_ID_KEY to it.eventDate
+                    KEY.EVENT_ID_KEY to it.eventId
             )
         }
 

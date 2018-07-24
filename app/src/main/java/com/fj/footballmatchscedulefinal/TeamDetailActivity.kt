@@ -25,6 +25,7 @@ import org.jetbrains.anko.design.snackbar
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.support.v4.onRefresh
 import com.fj.footballmatchscedulefinal.R.string.*
+import org.jetbrains.anko.toast
 
 class TeamDetailActivity : AppCompatActivity(), TeamView, View.OnClickListener {
 
@@ -71,14 +72,15 @@ class TeamDetailActivity : AppCompatActivity(), TeamView, View.OnClickListener {
         setSupportActionBar(toolbar)
 
         btn_view_player.setOnClickListener(this)
-        setFavorite()
 
         val intent = intent
         id = intent.getStringExtra(KEY.TEAM_ID_KEY)
-        supportActionBar?.title = getString(title_activity_team_detail)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         favoriteState()
+        setFavorite()
+
+        supportActionBar?.title = getString(title_activity_team_detail)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         fab.setOnClickListener {
             if (isFavorite) removeFromFavorite() else addToFavorite()
@@ -111,7 +113,7 @@ class TeamDetailActivity : AppCompatActivity(), TeamView, View.OnClickListener {
                     .whereArgs("TEAM_ID = {id}",
                             "id" to id)
             val favorite = result.parseList(classParser<FavoriteTeam>())
-            if (!favorite.isEmpty()) isFavorite = true
+            isFavorite = !favorite.isEmpty()
         }
     }
 
@@ -142,11 +144,12 @@ class TeamDetailActivity : AppCompatActivity(), TeamView, View.OnClickListener {
     }
 
     private fun setFavorite() {
-        if (isFavorite)
+        if (isFavorite){
             fab.setImageResource(R.drawable.ic_added_to_favorites)
-        else
+        }
+        else{
             fab.setImageResource(R.drawable.ic_add_to_favorites)
-
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

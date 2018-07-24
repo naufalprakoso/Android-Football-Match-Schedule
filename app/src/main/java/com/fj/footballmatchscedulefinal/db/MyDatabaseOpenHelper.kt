@@ -22,6 +22,7 @@ class MyDatabaseOpenHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "Favorit
     override fun onCreate(db: SQLiteDatabase) {
         db.createTable(FavoriteMatch.TABLE_FAVORITE, true,
                 FavoriteMatch.ID to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
+                FavoriteMatch.EVENT_ID to TEXT + UNIQUE,
                 FavoriteMatch.TEAM_HOME_ID to TEXT,
                 FavoriteMatch.TEAM_AWAY_ID to TEXT,
                 FavoriteMatch.EVENT_DATE to TEXT,
