@@ -44,6 +44,9 @@ class MatchSearchActivity : AppCompatActivity(), MatchView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_match_search)
 
+        supportActionBar?.title = "Search Match"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         val request = APIRepository()
         val gson = Gson()
         searchPresenter = MatchSearchPresenter(this, request, gson)
@@ -76,5 +79,10 @@ class MatchSearchActivity : AppCompatActivity(), MatchView {
 
     private fun View.invisible(){
         visibility = View.INVISIBLE
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

@@ -11,6 +11,7 @@ class MatchInitialActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(p0: View?) {
         when(p0){
             btn_past -> startActivity<MatchActivity>()
+            btn_next -> startActivity<NextMatchActivity>()
         }
     }
 

@@ -35,7 +35,8 @@
             android:label="@string/title_activity_match_detail"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".FavoriteMatchActivity" />
-        <activity android:name=".MatchSearchActivity"></activity>
+        <activity android:name=".MatchSearchActivity" />
+        <activity android:name=".NextMatchActivity"></activity>
     </application>
 
 </manifest>
