@@ -3,7 +3,6 @@ package com.fj.footballmatchscedulefinal.presenter
 import com.fj.footballmatchscedulefinal.api.APIRepository
 import com.fj.footballmatchscedulefinal.api.TheSportDBApi
 import com.fj.footballmatchscedulefinal.response.PlayerDetailResponse
-import com.fj.footballmatchscedulefinal.response.PlayerResponse
 import com.fj.footballmatchscedulefinal.view.PlayerView
 import com.google.gson.Gson
 import kotlinx.coroutines.experimental.android.UI

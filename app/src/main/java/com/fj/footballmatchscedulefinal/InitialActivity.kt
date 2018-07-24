@@ -12,6 +12,7 @@ class InitialActivity : AppCompatActivity(), View.OnClickListener {
         when(p0){
             btn_team -> startActivity<TeamActivity>()
             btn_favorite -> startActivity<FavoriteInitialActivity>()
+            btn_match -> startActivity<MatchInitialActivity>()
         }
     }
 

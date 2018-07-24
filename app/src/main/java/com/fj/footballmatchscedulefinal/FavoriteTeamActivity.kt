@@ -4,18 +4,18 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
 import com.fj.footballmatchscedulefinal.adapter.FavoriteTeamAdapter
-import com.fj.footballmatchscedulefinal.db.database
-import com.fj.footballmatchscedulefinal.model.Favorite
 import kotlinx.android.synthetic.main.activity_favorite_team.*
 import org.jetbrains.anko.db.classParser
 import org.jetbrains.anko.db.select
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.support.v4.onRefresh
 import com.fj.footballmatchscedulefinal.data.KEY
+import com.fj.footballmatchscedulefinal.db.databaseTeam
+import com.fj.footballmatchscedulefinal.model.FavoriteTeam
 
 class FavoriteTeamActivity : AppCompatActivity() {
 
-    private var favorites: MutableList<Favorite> = mutableListOf()
+    private var favorites: MutableList<FavoriteTeam> = mutableListOf()
     private lateinit var adapter: FavoriteTeamAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,10 +36,10 @@ class FavoriteTeamActivity : AppCompatActivity() {
     }
 
     private fun showFavorite(){
-        database.use {
+        databaseTeam.use {
             swipe.isRefreshing = false
-            val result = select(Favorite.TABLE_FAVORITE)
-            val favorite = result.parseList(classParser<Favorite>())
+            val result = select(FavoriteTeam.TABLE_FAVORITE)
+            val favorite = result.parseList(classParser<FavoriteTeam>())
             favorites.addAll(favorite)
             adapter.notifyDataSetChanged()
         }

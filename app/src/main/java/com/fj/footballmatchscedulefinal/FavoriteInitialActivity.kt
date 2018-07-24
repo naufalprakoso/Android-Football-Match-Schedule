@@ -11,6 +11,7 @@ class FavoriteInitialActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(p0: View?) {
         when(p0){
             btn_team -> startActivity<FavoriteTeamActivity>()
+            btn_match -> startActivity<FavoriteMatchActivity>()
         }
     }
 

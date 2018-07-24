@@ -12,7 +12,39 @@
         <item>French Ligue 1</item>
         <item>Spanish La Liga</item>
     </array>
-    <string name="title_activity_team_detail">TeamDetailActivity</string>
+
+    <array name="league_match">
+        <item>English Premier League</item>
+        <item>English League Championship</item>
+        <item>German Bundesliga</item>
+        <item>Italian Serie A</item>
+    </array>
+
+    <string name="league_epl">English Premier League</string>
+    <string name="league_elc">English League Championship</string>
+    <string name="league_gb">German Bundesliga</string>
+    <string name="league_isa">Italian Serie A</string>
+
+    <string name="league_epl_api">4328</string>
+    <string name="league_elc_api">4329</string>
+    <string name="league_gb_api">4331</string>
+    <string name="league_isa_api">4332</string>
+
+    <string name="title_activity_team_detail">Team Detail</string>
     <string name="weight">Weight</string>
     <string name="height">Height</string>
+
+    <string name="no_data">There is no data</string>
+    <string name="past">Past Match</string>
+    <string name="next">Next Match</string>
+    <string name="title_activity_match_detail">MatchDetailActivity</string>
+    <string name="goalkeeper">Goalkeeper</string>
+    <string name="defense">Defense</string>
+    <string name="lineup">Lineup</string>
+    <string name="team_image_home">Team Image Home</string>
+    <string name="team_image_away">Team Image Away</string>
+    <string name="midfield">Midfield</string>
+    <string name="forward">Forward</string>
+    <string name="substitutes">Substitutes</string>
+    <string name="goals">Goals</string>
 </resources>

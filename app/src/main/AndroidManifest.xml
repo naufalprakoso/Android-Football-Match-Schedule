@@ -27,7 +27,14 @@
         <activity android:name=".PlayerDetailActivity" />
         <activity android:name=".FavoriteInitialActivity" />
         <activity android:name=".FavoriteTeamActivity" />
-        <activity android:name=".TeamSearchActivity"/>
+        <activity android:name=".TeamSearchActivity" />
+        <activity android:name=".MatchActivity" />
+        <activity android:name=".MatchInitialActivity" />
+        <activity
+            android:name=".MatchDetailActivity"
+            android:label="@string/title_activity_match_detail"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".FavoriteMatchActivity"></activity>
     </application>
 
 </manifest>

@@ -43,7 +43,7 @@ class TeamSearchActivity : AppCompatActivity(), TeamView {
         val i = intent
         val getName = i.getStringExtra(KEY.TEAM_NAME_KEY)
 
-        txt_search.setText(getName)
+        txt_search.text = getName
 
         adapter = TeamAdapter(this, teams) {
             startActivity<TeamDetailActivity>(KEY.TEAM_ID_KEY to "${it.teamId}")

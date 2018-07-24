@@ -6,12 +6,12 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.fj.footballmatchscedulefinal.api.APIRepository
-import com.fj.footballmatchscedulefinal.db.database
-import com.fj.footballmatchscedulefinal.model.Favorite
 import com.fj.footballmatchscedulefinal.model.Team
 import com.fj.footballmatchscedulefinal.presenter.TeamDetailPresenter
 import com.fj.footballmatchscedulefinal.view.TeamView
 import com.fj.footballmatchscedulefinal.data.KEY
+import com.fj.footballmatchscedulefinal.db.databaseTeam
+import com.fj.footballmatchscedulefinal.model.FavoriteTeam
 import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 
@@ -105,22 +105,22 @@ class TeamDetailActivity : AppCompatActivity(), TeamView, View.OnClickListener {
     }
 
     private fun favoriteState(){
-        database.use {
-            val result = select(Favorite.TABLE_FAVORITE)
+        databaseTeam.use {
+            val result = select(FavoriteTeam.TABLE_FAVORITE)
                     .whereArgs("TEAM_ID = {id}",
                             "id" to id)
-            val favorite = result.parseList(classParser<Favorite>())
+            val favorite = result.parseList(classParser<FavoriteTeam>())
             if (!favorite.isEmpty()) isFavorite = true
         }
     }
 
     private fun addToFavorite(){
         try {
-            database.use {
-                insert(Favorite.TABLE_FAVORITE,
-                        Favorite.TEAM_ID to teams.teamId,
-                        Favorite.TEAM_NAME to teams.teamName,
-                        Favorite.TEAM_BADGE to teams.teamBadge)
+            databaseTeam.use {
+                insert(FavoriteTeam.TABLE_FAVORITE,
+                        FavoriteTeam.TEAM_ID to teams.teamId,
+                        FavoriteTeam.TEAM_NAME to teams.teamName,
+                        FavoriteTeam.TEAM_BADGE to teams.teamBadge)
             }
             snackbar(swipe, "Added to favorite").show()
         } catch (e: SQLiteConstraintException){
@@ -130,8 +130,8 @@ class TeamDetailActivity : AppCompatActivity(), TeamView, View.OnClickListener {
 
     private fun removeFromFavorite(){
         try {
-            database.use {
-                delete(Favorite.TABLE_FAVORITE, "TEAM_ID = {id}",
+            databaseTeam.use {
+                delete(FavoriteTeam.TABLE_FAVORITE, "TEAM_ID = {id}",
                         "id" to id)
             }
             snackbar(swipe, "Removed to favorite").show()
