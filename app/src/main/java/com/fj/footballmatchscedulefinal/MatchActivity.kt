@@ -65,6 +65,9 @@ class MatchActivity : AppCompatActivity(), MatchView, View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_match)
 
+        supportActionBar?.title = "Past Match"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         btn_search.setOnClickListener(this)
 
         val request = APIRepository()
@@ -112,5 +115,10 @@ class MatchActivity : AppCompatActivity(), MatchView, View.OnClickListener {
 
     private fun View.invisible(){
         visibility = View.INVISIBLE
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

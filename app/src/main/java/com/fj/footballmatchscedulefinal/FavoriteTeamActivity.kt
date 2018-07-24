@@ -22,6 +22,9 @@ class FavoriteTeamActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_favorite_team)
 
+        supportActionBar?.title = "Favorite Team"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         adapter = FavoriteTeamAdapter(this, favorites){
             startActivity<TeamDetailActivity>(KEY.TEAM_ID_KEY to "${it.teamId}")
         }
@@ -43,5 +46,10 @@ class FavoriteTeamActivity : AppCompatActivity() {
             favorites.addAll(favorite)
             adapter.notifyDataSetChanged()
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

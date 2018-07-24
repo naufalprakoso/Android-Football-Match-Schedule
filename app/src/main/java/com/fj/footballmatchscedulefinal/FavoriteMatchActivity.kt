@@ -22,6 +22,9 @@ class FavoriteMatchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_favorite_match)
 
+        supportActionBar?.title = "Favorite Match"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         adapter = FavoriteMatchAdapter(this, favorites){
             startActivity<MatchDetailActivity>(
                     KEY.HOME_ID_KEY to it.teamHomeId,
@@ -47,5 +50,10 @@ class FavoriteMatchActivity : AppCompatActivity() {
             favorites.addAll(favorite)
             adapter.notifyDataSetChanged()
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

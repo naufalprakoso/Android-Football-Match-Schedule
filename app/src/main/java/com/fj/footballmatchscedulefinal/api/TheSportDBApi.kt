@@ -50,8 +50,6 @@ object TheSportDBApi{
                 "api/v1/json/${BuildConfig.TSDB_API_KEY}" + "/lookupevent.php?id=" + detailMatch
     }
     fun getMatchSearch(event: String?): String{
-        println("Info : ${BuildConfig.BASE_URL +
-                "api/v1/json/${BuildConfig.TSDB_API_KEY}" + "/searchevents.php?e=" + event}")
         return BuildConfig.BASE_URL +
                 "api/v1/json/${BuildConfig.TSDB_API_KEY}" + "/searchevents.php?e=" + event
     }

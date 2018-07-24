@@ -18,7 +18,15 @@ class MatchInitialActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_match_initial)
 
+        supportActionBar?.title = "Match"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         btn_past.setOnClickListener(this)
         btn_next.setOnClickListener(this)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

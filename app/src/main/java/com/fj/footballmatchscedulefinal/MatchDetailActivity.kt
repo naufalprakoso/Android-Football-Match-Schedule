@@ -129,7 +129,7 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailView, MatchView {
         setContentView(R.layout.activity_match_detail)
         setSupportActionBar(toolbar)
 
-        supportActionBar?.title = "Team Detail"
+        supportActionBar?.title = "Match Detail"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         fab.setOnClickListener {

@@ -61,6 +61,9 @@ class TeamActivity : AppCompatActivity(), TeamView, View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_team)
 
+        supportActionBar?.title = "Team"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         btn_search.setOnClickListener(this)
 
         val spinnerItems = resources.getStringArray(league)
@@ -96,5 +99,10 @@ class TeamActivity : AppCompatActivity(), TeamView, View.OnClickListener {
 
     private fun View.invisible(){
         visibility = View.INVISIBLE
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

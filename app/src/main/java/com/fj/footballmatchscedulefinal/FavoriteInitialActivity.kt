@@ -19,7 +19,15 @@ class FavoriteInitialActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_favorite_initial)
 
+        supportActionBar?.title = "Favorite"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         btn_team.setOnClickListener(this)
         btn_match.setOnClickListener(this)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }
