@@ -33,7 +33,7 @@ class MatchActivity : AppCompatActivity(), MatchView, View.OnClickListener {
                 val strSearch = edt_search.text.toString()
 
                 when{
-                    strSearch.isEmpty() -> edt_search.error = "Must be filled"
+                    strSearch.isEmpty() -> edt_search.error = getString(filled)
                     else -> {
                         startActivity<MatchSearchActivity>(
                                 KEY.MATCH_NAME_KEY to strSearch
@@ -65,7 +65,7 @@ class MatchActivity : AppCompatActivity(), MatchView, View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_match)
 
-        supportActionBar?.title = "Past Match"
+        supportActionBar?.title = getString(past)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         btn_search.setOnClickListener(this)

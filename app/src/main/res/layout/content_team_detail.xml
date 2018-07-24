@@ -8,7 +8,8 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".TeamDetailActivity"
-    tools:showIn="@layout/activity_team_detail">
+    tools:showIn="@layout/activity_team_detail"
+    tools:ignore="PrivateResource">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -28,7 +29,8 @@
                     android:id="@+id/img_team"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
-                    android:layout_gravity="center"/>
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/team_logo" />
 
                 <TextView
                     android:id="@+id/txt_name"
@@ -75,7 +77,7 @@
                         android:id="@+id/btn_view_player"
                         android:layout_weight="1"
                         android:background="@color/colorPrimary"
-                        android:text="View Player"
+                        android:text="@string/view_player"
                         android:textColor="@android:color/white"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />

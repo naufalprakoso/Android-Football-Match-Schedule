@@ -17,6 +17,7 @@ import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_team.*
 import org.jetbrains.anko.support.v4.onRefresh
 import org.jetbrains.anko.startActivity
+import com.fj.footballmatchscedulefinal.R.string.*
 
 class TeamActivity : AppCompatActivity(), TeamView, View.OnClickListener {
 
@@ -26,7 +27,7 @@ class TeamActivity : AppCompatActivity(), TeamView, View.OnClickListener {
                 val strSearch = edt_search.text.toString()
 
                 when{
-                    strSearch.isEmpty() -> edt_search.error = "Must be filled"
+                    strSearch.isEmpty() -> edt_search.error = getString(filled)
                     else -> {
                         startActivity<TeamSearchActivity>(
                                 KEY.TEAM_NAME_KEY to strSearch
@@ -61,7 +62,7 @@ class TeamActivity : AppCompatActivity(), TeamView, View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_team)
 
-        supportActionBar?.title = "Team"
+        supportActionBar?.title = getString(team)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         btn_search.setOnClickListener(this)

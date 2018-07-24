@@ -1,8 +1,19 @@
 <resources>
     <string name="app_name">Football Match Schedule</string>
     <string name="match">Match</string>
-    <string name="favorite">Favorite</string>
     <string name="team">Team</string>
+    <string name="match_detail">Match Detail</string>
+    <string name="search_match">Search Match</string>
+    <string name="player_s">Player</string>
+    <string name="player_detail">Player Detail</string>
+
+    <string name="added_fav">Added to favorite</string>
+    <string name="remove_fav">Remove to favorite</string>
+    <string name="rem_fav">Remove to favorite</string>
+    <string name="filled">Must be filled</string>
+
+    <string name="fav_match">Favorite Match</string>
+    <string name="fav_team">Favorite Team</string>
 
     <array name="league">
         <item>English Premier League</item>
@@ -47,4 +58,9 @@
     <string name="forward">Forward</string>
     <string name="substitutes">Substitutes</string>
     <string name="goals">Goals</string>
+    <string name="search">Search…</string>
+    <string name="search_original">Search</string>
+    <string name="favorite">Favorite</string>
+    <string name="view_player">View Player</string>
+    <string name="team_logo">Team logo</string>
 </resources>

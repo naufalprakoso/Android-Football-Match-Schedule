@@ -1,5 +1,6 @@
 package com.fj.footballmatchscedulefinal.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -23,11 +24,12 @@ class FavoriteMatchAdapter (private val context: Context, private val events: Li
     override fun getItemCount(): Int = events.size
 
     class MatchViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        @SuppressLint("SetTextI18n")
         fun bindItems(events: FavoriteMatch, listener: (FavoriteMatch) -> Unit){
             itemView.txt_team1.text = events.teamHomeName
             itemView.txt_team2.text = events.teamAwayName
             if(events.teamHomeScore != null){
-                itemView.txt_score.text = events.teamHomeScore + " VS " + events.teamAwayScore
+                itemView.txt_score.text = "${events.teamHomeScore} VS ${events.teamAwayScore}"
             }else{
                 itemView.txt_score.text = "? VS ?"
             }

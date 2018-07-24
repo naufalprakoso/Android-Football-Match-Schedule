@@ -11,12 +11,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        tools:ignore="UselessParent">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Favorite"
+            android:text="@string/favorite"
             android:textColor="@android:color/black"
             android:textSize="22sp"/>
 

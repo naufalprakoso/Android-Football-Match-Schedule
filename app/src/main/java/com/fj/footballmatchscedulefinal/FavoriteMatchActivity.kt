@@ -6,12 +6,13 @@ import android.support.v7.widget.LinearLayoutManager
 import com.fj.footballmatchscedulefinal.adapter.FavoriteMatchAdapter
 import com.fj.footballmatchscedulefinal.model.FavoriteMatch
 import com.fj.footballmatchscedulefinal.data.KEY
-import com.fj.footballmatchscedulefinal.db.databaseMatch
+import com.fj.footballmatchscedulefinal.db.database
 import kotlinx.android.synthetic.main.activity_favorite_match.*
 import org.jetbrains.anko.db.classParser
 import org.jetbrains.anko.db.select
 import org.jetbrains.anko.support.v4.onRefresh
 import org.jetbrains.anko.startActivity
+import com.fj.footballmatchscedulefinal.R.string.*
 
 class FavoriteMatchActivity : AppCompatActivity() {
 
@@ -22,7 +23,7 @@ class FavoriteMatchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_favorite_match)
 
-        supportActionBar?.title = "Favorite Match"
+        supportActionBar?.title = getString(fav_match)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         adapter = FavoriteMatchAdapter(this, favorites){
@@ -43,7 +44,7 @@ class FavoriteMatchActivity : AppCompatActivity() {
     }
 
     private fun showFavorite(){
-        databaseMatch.use {
+        database.use {
             swipe.isRefreshing = false
             val result = select(FavoriteMatch.TABLE_FAVORITE)
             val favorite = result.parseList(classParser<FavoriteMatch>())

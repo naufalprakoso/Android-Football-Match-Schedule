@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.activity_match_initial.*
 import org.jetbrains.anko.startActivity
+import com.fj.footballmatchscedulefinal.R.string.*
 
 class MatchInitialActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -19,7 +20,7 @@ class MatchInitialActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_match_initial)
 
-        supportActionBar?.title = "Match"
+        supportActionBar?.title = getString(match)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         btn_past.setOnClickListener(this)

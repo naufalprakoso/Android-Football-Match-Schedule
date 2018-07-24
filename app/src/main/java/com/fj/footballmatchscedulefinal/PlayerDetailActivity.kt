@@ -13,6 +13,7 @@ import com.google.gson.Gson
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_player_detail.*
 import org.jetbrains.anko.support.v4.onRefresh
+import com.fj.footballmatchscedulefinal.R.string.*
 
 class PlayerDetailActivity : AppCompatActivity(), PlayerView {
 
@@ -55,7 +56,7 @@ class PlayerDetailActivity : AppCompatActivity(), PlayerView {
 
         val intent = intent
         id = intent.getStringExtra(KEY.PLAYER_ID_KEY)
-        supportActionBar?.title = "Player Detail"
+        supportActionBar?.title = getString(player_detail)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val request = APIRepository()

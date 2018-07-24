@@ -10,8 +10,9 @@ import org.jetbrains.anko.db.select
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.support.v4.onRefresh
 import com.fj.footballmatchscedulefinal.data.KEY
-import com.fj.footballmatchscedulefinal.db.databaseTeam
+import com.fj.footballmatchscedulefinal.db.database
 import com.fj.footballmatchscedulefinal.model.FavoriteTeam
+import com.fj.footballmatchscedulefinal.R.string.*
 
 class FavoriteTeamActivity : AppCompatActivity() {
 
@@ -22,7 +23,7 @@ class FavoriteTeamActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_favorite_team)
 
-        supportActionBar?.title = "Favorite Team"
+        supportActionBar?.title = getString(fav_team)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         adapter = FavoriteTeamAdapter(this, favorites){
@@ -39,7 +40,7 @@ class FavoriteTeamActivity : AppCompatActivity() {
     }
 
     private fun showFavorite(){
-        databaseTeam.use {
+        database.use {
             swipe.isRefreshing = false
             val result = select(FavoriteTeam.TABLE_FAVORITE)
             val favorite = result.parseList(classParser<FavoriteTeam>())

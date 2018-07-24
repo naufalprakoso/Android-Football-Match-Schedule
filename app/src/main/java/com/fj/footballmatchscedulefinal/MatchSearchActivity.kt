@@ -16,6 +16,7 @@ import kotlinx.android.synthetic.main.activity_match_search.*
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.support.v4.onRefresh
 import org.jetbrains.anko.toast
+import com.fj.footballmatchscedulefinal.R.string.*
 
 class MatchSearchActivity : AppCompatActivity(), MatchView {
 
@@ -44,7 +45,7 @@ class MatchSearchActivity : AppCompatActivity(), MatchView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_match_search)
 
-        supportActionBar?.title = "Search Match"
+        supportActionBar?.title = getString(search_match)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val request = APIRepository()

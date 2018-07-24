@@ -18,6 +18,7 @@ import org.jetbrains.anko.ctx
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.support.v4.onRefresh
 import org.jetbrains.anko.toast
+import com.fj.footballmatchscedulefinal.R.string.*
 
 class NextMatchActivity : AppCompatActivity(), MatchView, View.OnClickListener {
 
@@ -48,7 +49,7 @@ class NextMatchActivity : AppCompatActivity(), MatchView, View.OnClickListener {
                 val strSearch = edt_search.text.toString()
 
                 when{
-                    strSearch.isEmpty() -> edt_search.error = "Must be filled"
+                    strSearch.isEmpty() -> edt_search.error = getString(filled)
                     else -> {
                         startActivity<MatchSearchActivity>(
                                 KEY.MATCH_NAME_KEY to strSearch
@@ -63,7 +64,7 @@ class NextMatchActivity : AppCompatActivity(), MatchView, View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_next_match)
 
-        supportActionBar?.title = "Next Match"
+        supportActionBar?.title = getString(next)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         btn_search.setOnClickListener(this)

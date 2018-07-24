@@ -3,7 +3,6 @@ package com.fj.footballmatchscedulefinal
 import android.annotation.SuppressLint
 import android.database.sqlite.SQLiteConstraintException
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import com.fj.footballmatchscedulefinal.api.APIRepository
@@ -13,7 +12,6 @@ import com.fj.footballmatchscedulefinal.presenter.DetailPresenter
 import com.fj.footballmatchscedulefinal.presenter.MatchDetailPresenter
 import com.fj.footballmatchscedulefinal.view.MatchView
 import com.fj.footballmatchscedulefinal.data.KEY
-import com.fj.footballmatchscedulefinal.db.databaseMatch
 import com.fj.footballmatchscedulefinal.model.FavoriteMatch
 import com.fj.footballmatchscedulefinal.model.TeamMatch
 import com.fj.footballmatchscedulefinal.view.MatchDetailView
@@ -28,6 +26,8 @@ import org.jetbrains.anko.db.insert
 import org.jetbrains.anko.db.select
 import org.jetbrains.anko.support.v4.onRefresh
 import org.jetbrains.anko.toast
+import com.fj.footballmatchscedulefinal.R.string.*
+import com.fj.footballmatchscedulefinal.db.database
 
 class MatchDetailActivity : AppCompatActivity(), MatchDetailView, MatchView {
 
@@ -129,7 +129,7 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailView, MatchView {
         setContentView(R.layout.activity_match_detail)
         setSupportActionBar(toolbar)
 
-        supportActionBar?.title = "Match Detail"
+        supportActionBar?.title = getString(match_detail)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         fab.setOnClickListener {
@@ -162,7 +162,7 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailView, MatchView {
     }
 
     private fun favoriteState(){
-        databaseMatch.use {
+        database.use {
             val result = select(FavoriteMatch.TABLE_FAVORITE)
                     .whereArgs("(TEAM_HOME_ID = {id}) and (TEAM_AWAY_ID = {id2}) and (EVENT_DATE = {id3})",
                             "id" to homeId,
@@ -175,7 +175,7 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailView, MatchView {
 
     private fun addToFavorite(){
         try {
-            databaseMatch.use {
+            database.use {
                 insert(FavoriteMatch.TABLE_FAVORITE,
                         FavoriteMatch.TEAM_HOME_ID to homeId,
                         FavoriteMatch.TEAM_AWAY_ID to awayId,
@@ -186,7 +186,7 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailView, MatchView {
                         FavoriteMatch.TEAM_AWAY_SCORE to awayScore)
             }
 
-            toast("Added to favorite")
+            toast(getString(added_fav))
         } catch (e: SQLiteConstraintException){
             toast(e.localizedMessage)
         }
@@ -194,14 +194,14 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailView, MatchView {
 
     private fun removeFromFavorite(){
         try {
-            databaseMatch.use {
+            database.use {
                 delete(FavoriteMatch.TABLE_FAVORITE,
                         "(TEAM_HOME_ID = {id}) and (TEAM_AWAY_ID = {id2}) and (EVENT_DATE = {id3})",
                         "id" to homeId,
                         "id2" to awayId,
                         "id3" to eventId)
             }
-            toast("Removed to favorite")
+            toast(getString(remove_fav))
         } catch (e: SQLiteConstraintException){
             toast(e.localizedMessage)
         }

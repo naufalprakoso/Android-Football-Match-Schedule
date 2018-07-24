@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.activity_favorite_initial.*
 import org.jetbrains.anko.startActivity
+import com.fj.footballmatchscedulefinal.R.string.*
 
 class FavoriteInitialActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -19,7 +20,7 @@ class FavoriteInitialActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_favorite_initial)
 
-        supportActionBar?.title = "Favorite"
+        supportActionBar?.title = getString(favorite)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         btn_team.setOnClickListener(this)

@@ -14,6 +14,7 @@ import com.fj.footballmatchscedulefinal.data.KEY
 import com.google.gson.Gson
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.support.v4.onRefresh
+import com.fj.footballmatchscedulefinal.R.string.*
 
 class PlayerActivity : AppCompatActivity(), PlayerView {
 
@@ -41,7 +42,7 @@ class PlayerActivity : AppCompatActivity(), PlayerView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_player)
 
-        supportActionBar?.title = "Player"
+        supportActionBar?.title = getString(player_s)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val i = intent
