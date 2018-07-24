@@ -47,6 +47,7 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailView, MatchView {
     private lateinit var awayName: String
     private lateinit var homeScore: String
     private lateinit var awayScore: String
+    private lateinit var eventDate: String
 
     override fun showLoading() {
         progressbar.visible()
@@ -116,6 +117,8 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailView, MatchView {
         txt_substitutes2.text = data?.get(0)?.awaySubstitutes
         txt_midfield2.text = data?.get(0)?.awayMidfield
 
+        eventDate = data?.get(0)?.dateEvent.toString()
+
         txt_date.text = data?.get(0)?.dateEvent
         txt_score.text = "${data?.get(0)?.homeScore} vs ${data?.get(0)?.awayScore}"
         txt_shots.text = "${data?.get(0)?.homeShots} shots ${data?.get(0)?.awayShots}"
@@ -176,7 +179,7 @@ class MatchDetailActivity : AppCompatActivity(), MatchDetailView, MatchView {
                 insert(FavoriteMatch.TABLE_FAVORITE,
                         FavoriteMatch.TEAM_HOME_ID to homeId,
                         FavoriteMatch.TEAM_AWAY_ID to awayId,
-                        FavoriteMatch.EVENT_DATE to eventId,
+                        FavoriteMatch.EVENT_DATE to eventDate,
                         FavoriteMatch.TEAM_HOME_NAME to homeName,
                         FavoriteMatch.TEAM_AWAY_NAME to awayName,
                         FavoriteMatch.TEAM_HOME_SCORE to homeScore,

@@ -21,7 +21,24 @@ import org.jetbrains.anko.support.v4.onRefresh
 import org.jetbrains.anko.toast
 import com.fj.footballmatchscedulefinal.data.KEY
 
-class MatchActivity : AppCompatActivity(), MatchView {
+class MatchActivity : AppCompatActivity(), MatchView, View.OnClickListener {
+
+    override fun onClick(p0: View?) {
+        when(p0){
+            btn_search -> {
+                val strSearch = edt_search.text.toString()
+
+                when{
+                    strSearch.isEmpty() -> edt_search.error = "Must be filled"
+                    else -> {
+                        startActivity<MatchSearchActivity>(
+                                KEY.MATCH_NAME_KEY to strSearch
+                        )
+                    }
+                }
+            }
+        }
+    }
 
     private lateinit var adapter: MatchAdapter
     private lateinit var pastPresenter: MatchPresenter
@@ -47,6 +64,8 @@ class MatchActivity : AppCompatActivity(), MatchView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_match)
+
+        btn_search.setOnClickListener(this)
 
         val request = APIRepository()
         val gson = Gson()
