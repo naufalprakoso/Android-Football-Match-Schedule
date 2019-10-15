@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PlayerDetailActivity">
+    tools:context=".ui.team.player.detail.PlayerDetailActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -57,6 +57,7 @@
                         android:layout_gravity="center"/>
 
                     <LinearLayout
+                        android:baselineAligned="false"
                         android:layout_marginTop="@dimen/dimen_16dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

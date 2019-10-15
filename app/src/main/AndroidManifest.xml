@@ -11,32 +11,32 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".InitialActivity">
+        <activity android:name=".ui.InitialActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TeamActivity" />
+        <activity android:name=".ui.team.all.TeamActivity" />
         <activity
-            android:name=".TeamDetailActivity"
+            android:name=".ui.team.detail.TeamDetailActivity"
             android:label="@string/title_activity_team_detail"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".PlayerActivity" />
-        <activity android:name=".PlayerDetailActivity" />
-        <activity android:name=".FavoriteInitialActivity" />
-        <activity android:name=".FavoriteTeamActivity" />
-        <activity android:name=".TeamSearchActivity" />
-        <activity android:name=".MatchActivity" />
-        <activity android:name=".MatchInitialActivity" />
+        <activity android:name=".ui.team.player.all.PlayerActivity" />
+        <activity android:name=".ui.team.player.detail.PlayerDetailActivity" />
+        <activity android:name=".ui.favorite.FavoriteInitialActivity" />
+        <activity android:name=".ui.favorite.team.FavoriteTeamActivity" />
+        <activity android:name=".ui.team.search.TeamSearchActivity" />
+        <activity android:name=".ui.match.all.past.MatchActivity" />
+        <activity android:name=".ui.match.MatchInitialActivity" />
         <activity
-            android:name=".MatchDetailActivity"
+            android:name=".ui.match.detail.MatchDetailActivity"
             android:label="@string/title_activity_match_detail"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".FavoriteMatchActivity" />
-        <activity android:name=".MatchSearchActivity" />
-        <activity android:name=".NextMatchActivity"></activity>
+        <activity android:name=".ui.favorite.match.FavoriteMatchActivity" />
+        <activity android:name=".ui.match.search.MatchSearchActivity" />
+        <activity android:name=".ui.match.all.next.NextMatchActivity"></activity>
     </application>
 
 </manifest>

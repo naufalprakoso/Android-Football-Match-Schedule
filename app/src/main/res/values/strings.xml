@@ -9,8 +9,7 @@
 
     <string name="added_fav">Added to favorite</string>
     <string name="remove_fav">Remove to favorite</string>
-    <string name="rem_fav">Remove to favorite</string>
-    <string name="filled">Must be filled</string>
+	<string name="filled">Must be filled</string>
 
     <string name="fav_match">Favorite Match</string>
     <string name="fav_team">Favorite Team</string>
@@ -34,9 +33,8 @@
     <string name="league_epl">English Premier League</string>
     <string name="league_elc">English League Championship</string>
     <string name="league_gb">German Bundesliga</string>
-    <string name="league_isa">Italian Serie A</string>
 
-    <string name="league_epl_api">4328</string>
+	<string name="league_epl_api">4328</string>
     <string name="league_elc_api">4329</string>
     <string name="league_gb_api">4331</string>
     <string name="league_isa_api">4332</string>

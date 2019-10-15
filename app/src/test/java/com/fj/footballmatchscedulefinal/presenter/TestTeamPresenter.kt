@@ -1,11 +1,12 @@
 package com.fj.footballmatchscedulefinal.presenter
 
-import com.fj.footballmatchscedulefinal.TestContextProvider
+import com.fj.footballmatchscedulefinal.utils.TestContextProvider
 import com.fj.footballmatchscedulefinal.api.APIRepository
 import com.fj.footballmatchscedulefinal.api.TheSportDBApi
 import com.fj.footballmatchscedulefinal.model.Team
-import com.fj.footballmatchscedulefinal.response.TeamResponse
-import com.fj.footballmatchscedulefinal.view.TeamView
+import com.fj.footballmatchscedulefinal.ui.team.TeamResponse
+import com.fj.footballmatchscedulefinal.ui.team.all.TeamPresenter
+import com.fj.footballmatchscedulefinal.ui.team.TeamView
 import com.google.gson.Gson
 import org.junit.Before
 import org.junit.Test
@@ -39,7 +40,7 @@ class TestTeamPresenter{
     @Mock
     private lateinit var apiRepository: APIRepository
     @Mock
-    private lateinit var presenter:  TeamPresenter
+    private lateinit var presenter: TeamPresenter
 
     @Before
     fun setUp(){

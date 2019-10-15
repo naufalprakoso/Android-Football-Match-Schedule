@@ -11,7 +11,7 @@ import android.support.v7.widget.RecyclerView
 import com.fj.footballmatchscedulefinal.R.id.rv_team
 import com.fj.footballmatchscedulefinal.R.id.spinner_team
 import com.fj.footballmatchscedulefinal.R.id.fab
-import com.fj.footballmatchscedulefinal.TeamActivity
+import com.fj.footballmatchscedulefinal.ui.team.all.TeamActivity
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith

@@ -8,7 +8,7 @@ import android.support.test.espresso.matcher.ViewMatchers.*
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
 import android.support.v7.widget.RecyclerView
-import com.fj.footballmatchscedulefinal.MatchActivity
+import com.fj.footballmatchscedulefinal.ui.match.all.past.MatchActivity
 import com.fj.footballmatchscedulefinal.R.id.rv_match
 import com.fj.footballmatchscedulefinal.R.id.spinner_league
 import com.fj.footballmatchscedulefinal.R.id.fab
